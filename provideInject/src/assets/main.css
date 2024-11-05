@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #1a1a2e; /* Color de fondo oscuro */
+  color: #ffffff; /* Texto blanco para contraste */
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #1f4068; /* Color azul oscuro para los encabezados */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+div {
+  max-width: 800px;
+  width: 100%;
+  background: #16213e; /* Color de fondo para el contenedor */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más marcada */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #3f72af; /* Bordes azul claro */
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #0f3460; /* Fondo de entrada oscuro */
+  color: #ffffff; /* Texto blanco en entradas */
+  transition: border-color 0.3s;
+}
+
+input:hover {
+  border-color: #1f4068; /* Bordes en hover */
+  outline: none;
+}
+
+input:focus {
+  border-color: #1f4068; /* Bordes en foco */
+  outline: none;
+}
+
+p {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+button {
+  background-color: #3f72af; /* Color azul para botones */
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1f4068; /* Color más oscuro en hover */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px 0;
+  border-bottom: 1px solid #3f72af; /* Bordes inferiores en azul claro */
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* Estilos para el select */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #3f72af; /* Bordes azul claro */
+  border-radius: 4px;
+  background-color: #0f3460; /* Fondo oscuro para el select */
+  color: #ffffff; /* Texto blanco en el select */
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+select:hover {
+  border-color: #1f4068; /* Bordes en hover para el select */
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff; /* Texto blanco para las etiquetas */
+}
