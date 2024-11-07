@@ -1,4 +1,5 @@
 <script setup>
+// Importem 'ref' i 'provide' de Vue.
 import { provide, ref } from 'vue';
 
 const currencies = ref([
