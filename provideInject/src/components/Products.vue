@@ -1,12 +1,9 @@
 <script setup>
-// Importem 'ref', 'provide' i 'inject' de Vue.
-import { ref, provide, inject } from 'vue';
+// Importem 'ref' i 'inject' de Vue.
+import { ref, inject } from 'vue';
 
 // Importem el component 'Cart'.
 import Cart from './Cart.vue';
-
-// Importem el component 'Currency'.
-import Currency from './Currency.vue';
 
 // Definim un array de productes amb els seus noms i preus.
 const products = ref([
@@ -16,12 +13,17 @@ const products = ref([
   { name: "Fries 🍟", price: 2 }
 ]);
 
-const selectedCurrency = inject('selectedCurrency');
+const selectedCurrency = ref('€');
 
-function getConvertedPrice(price) {
-    if (selectedCurrency == '€') return price;
-    return (price * 1.1);
-}
+const getConvertedPrice = (price) => {
+    if (selectedCurrency.value === '€') {
+        return price;
+    } else if (selectedCurrency.value === '$') {
+        return (price * 1.1);
+    } else {
+        return (price * 0.85);
+    }
+};
 
 // Definim una variable reactiva 'cart' que emmagatzema els productes afegits a la cistella.
 const cart = inject('cart');
@@ -37,11 +39,18 @@ function addToCart(product) {
 </script>
 
 <template>
-    <Currency />
+    <div>
+        <label>Currency: </label>
+        <select v-model="selectedCurrency">
+            <option value="€">EUR</option>
+            <option value="$">USD</option>
+            <option value="£">GBP</option>
+        </select>
+    </div>
 
     <!-- Iterem sobre l'array de productes per mostrar el nom i el preu de cada producte, amb un botó per afegir a la cistella -->
     <div v-for="product in products" :key="product.name">
-        <p>{{ product.name }} - {{ getConvertedPrice(product.price.toFixed(2)) }} {{ selectedCurrency }}</p>
+        <p>{{ product.name }} - {{ getConvertedPrice(product.price).toFixed(2) }} {{ selectedCurrency }}</p>
         <button @click="addToCart(product)">Add to the cart</button>
     </div>
 
