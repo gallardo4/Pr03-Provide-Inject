@@ -19,8 +19,8 @@ const products = ref([
 const selectedCurrency = inject('selectedCurrency');
 
 function getConvertedPrice(price) {
-    if (!selectedCurrency) return price;
-    return (price * selectedCurrency.value);
+    if (selectedCurrency == '€') return price;
+    return (price * 1.1);
 }
 
 // Definim una variable reactiva 'cart' que emmagatzema els productes afegits a la cistella.
@@ -41,7 +41,7 @@ function addToCart(product) {
 
     <!-- Iterem sobre l'array de productes per mostrar el nom i el preu de cada producte, amb un botó per afegir a la cistella -->
     <div v-for="product in products" :key="product.name">
-        <p v-if="selectedCurrency.value.name === 'EUR'">{{ product.name }} - {{ getConvertedPrice(product.price.toFixed(2)) }}€</p>
+        <p>{{ product.name }} - {{ getConvertedPrice(product.price.toFixed(2)) }} {{ selectedCurrency }}</p>
         <button @click="addToCart(product)">Add to the cart</button>
     </div>
 
